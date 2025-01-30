@@ -1,6 +1,5 @@
 package com.bharat.sms.accounts.controller;
 
-import com.bharat.sms.accounts.constants.AccountsConstants;
 import com.bharat.sms.accounts.dto.CustomerDto;
 import com.bharat.sms.accounts.dto.ErrorResponseDto;
 import com.bharat.sms.accounts.dto.ResponseDto;
@@ -20,13 +19,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.bharat.sms.accounts.constants.AccountsConstants.*;
+
 /*
  * @author Bharat V. <bindian0509@gmail.com>
  * @created Saturday, 21 September 2024
  */
 @Tag(
-        name = "CRUD REST APIs for Accounts in EazyBank",
-        description = "CRUD REST APIs in EazyBank to CREATE, UPDATE, FETCH AND DELETE account details"
+        name = "CRUD REST APIs for Accounts in Laxmi Chit Fund Bank",
+        description = "CRUD REST APIs in Laxmi Chit Fund Bank to CREATE, UPDATE, FETCH AND DELETE account details"
 )
 @RestController
 @RequestMapping(path="/api", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -38,7 +39,7 @@ public class AccountsController {
 
     @Operation(
             summary = "Create Account REST API",
-            description = "REST API to create new Customer &  Account inside EazyBank"
+            description = "REST API to create new Customer &  Account inside Laxmi Chit Fund Bank"
     )
     @ApiResponses({
             @ApiResponse(
@@ -59,7 +60,7 @@ public class AccountsController {
         iAccountsService.createAccount(customerDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
+                .body(new ResponseDto(STATUS_201, MESSAGE_201));
     }
 
     @Operation(
@@ -116,11 +117,11 @@ public class AccountsController {
         if(isUpdated) {
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200));
+                    .body(new ResponseDto(STATUS_200, MESSAGE_200));
         }else{
             return ResponseEntity
                     .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_UPDATE));
+                    .body(new ResponseDto(STATUS_417, MESSAGE_417_UPDATE));
         }
     }
 
@@ -154,11 +155,11 @@ public class AccountsController {
         if(isDeleted) {
             return ResponseEntity
                     .status(HttpStatus.OK)
-                    .body(new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200));
+                    .body(new ResponseDto(STATUS_200, MESSAGE_200));
         }else{
             return ResponseEntity
                     .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
+                    .body(new ResponseDto(STATUS_417, MESSAGE_417_DELETE));
         }
     }
 

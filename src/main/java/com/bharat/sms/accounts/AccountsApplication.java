@@ -29,7 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 		),
 		externalDocs = @ExternalDocumentation(
 				description =  "Fake Accounts microservice REST API Documentation",
-				url = "https://www.eazybytes.com/swagger-ui.html"
+				url = "https://localhost:8080/swagger-ui.html"
 		)
 )
 public class AccountsApplication {
